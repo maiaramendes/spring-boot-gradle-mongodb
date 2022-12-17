@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  mongo:
+    image: mongo:4.4.6
+    container_name: mongo-application
+    hostname: mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=application
+      - MONGO_INITDB_ROOT_PASSWORD=application
+      - MONGO_INITDB_DATABASE=application
+      - MONGO_DB_USERNAME=application
+      - MONGO_DB_PASSWORD=application
+    volumes:
+      - ~/mongo:/data/db
+
+volumes:
+  mongo-application:
